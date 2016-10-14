@@ -6,11 +6,14 @@ window.onload = function() //executes function after window has loaded
 		//firstwall.className="youlose";
 
 	//}
-	var boundaries = document.querySelector(".boundary"); //select all boundary classes
-	boundaries[0].addEventListener("mouseover",redWalls); // listens for mouse to touch walls of first boundary
-	function redWalls() // function to turn walls red if first wall is touched
-	{
-		boundaries[0].setAttribute("class","youlose");
-	}
+	var boundaries = document.querySelectorAll(".boundary");       //select all boundary classes and stores in variable
+		for (counter=0; counter < boundaries.length-1; counter++)  // loops through all the divs
+		{
+			boundaries[counter].addEventListener("mouseover",redWalls);             // listens for mouse to touch walls and applies redWalls function
+		}
+			function redWalls()                                            // function to turn walls red if first wall is touched
+			{
+				boundaries.setAttribute("class","youlose");
+			}
 
 }
