@@ -8,6 +8,7 @@ window.onload = function() //executes function after window has loaded
 	//}
 	var boundaries = document.querySelectorAll(".boundary");       //select all boundary classes and stores in variable
 	var endbutton= document.getElementById('end');
+	var startbutton= document.getElementById('start');
 
 
 	for (var counter=0; counter < boundaries.length-1; counter++)  // loops through all the divs
@@ -25,12 +26,16 @@ window.onload = function() //executes function after window has loaded
 	}
 	endbutton.addEventListener("mouseover", winorlose);
 	function winorlose(){
-		if (boundaries[0].getAttribute('style') === 'background-color:#ff8888'){
+		if (boundary[0].getAttribute('style') === 'background-color:#ff8888'){
 			alert("YOU LOSE");
 		}else{
 			alert("YOU WIN");
 		}
 	}
 	
+	startbutton.onclick = function(){
+		for (var counter=0; counter < boundaries.length-1; counter++)
+			boundaries[counter].setAttribute('style', 'boundary');
+	}
 
 }
