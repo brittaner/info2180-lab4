@@ -10,6 +10,9 @@ window.onload = function() //executes function after window has loaded
 	var endbutton = document.getElementById('end');
 	var startbutton = document.getElementById('start');
 	var winlose = document.getElementById('status');
+	var cheater = document.getElementById('maze');
+	var mouse = event.clientx;
+	var left =cheater.offsetLeft;             // offset left
 
 
 	for (var counter=0; counter < boundaries.length-1; counter++)  // loops through all the divs
@@ -29,10 +32,10 @@ window.onload = function() //executes function after window has loaded
 	function winorlose(){
 		if (boundaries[0].getAttribute('style') === 'background-color:#ff8888')
 		{
-			winlose.textContent="YOU LOSE";
+			winlose.textContent="YOU LOSE. CLICK THE 'S' TO RESTART ";
 		}
 		else{
-			winlose.textContent="YOU WIN";
+			winlose.textContent="YOU WIN. CLICK THE 'S' TO RESTART";
 		}
 	}
 	
@@ -40,5 +43,18 @@ window.onload = function() //executes function after window has loaded
 		for (var counter=0; counter < boundaries.length-1; counter++)
 			boundaries[counter].setAttribute('style', 'boundary');
 	}
+
+	startbutton.setAttribute('mouseout',ischeater);
+	
+	
+	function ischeater(){
+
+		if (mouse < left){
+			winlose.textContent="YOU LOSE";
+			function winorlose();
+		}
+
+	}
+
 
 }
